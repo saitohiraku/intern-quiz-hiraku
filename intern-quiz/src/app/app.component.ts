@@ -1,12 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { HomeComponent } from "./pages/home/home.component";
+import { QuizComponent } from './quiz/quiz.component';
+import { FishguideComponent } from './fishguide/fishguide.component';
+import { HowtoplayComponent } from './howtoplay/howtoplay.component';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
+import { QuizModule } from './quiz/quiz.module';
+import { SignupComponent } from "./signup/signup.component";
+import { LoginComponent } from "./login/login.component";
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+    selector: 'app-root',
+    template: `
+    <nav>
+      <a href="/">Home</a>
+      |
+      <a href="/user">User</a>
+      <router-outlet />
+    </nav>
+  `,
+    standalone: true,
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css',
+    imports: [RouterOutlet,
+        ToolbarComponent,
+        HomeComponent,
+        QuizComponent,
+        FishguideComponent,
+        HowtoplayComponent,
+        RouterModule,
+        AppRoutingModule,
+        QuizModule, SignupComponent, LoginComponent]
 })
 export class AppComponent {
   title = 'intern-quiz';
