@@ -1,0 +1,69 @@
+
+
+.pokedex-container {
+    max-height: 80vh;
+    overflow-y: auto;
+}
+.pokedex-item {
+    padding: 20px;
+}
+.divider {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+.content-wrapper {
+    background-color: #34495e;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+.best-score-box {
+    display: inline-block;
+    border: 2px solid white;
+    padding: 5px 10px;
+}
+.completion-box {
+    display: inline-block;
+    border: 2px solid white;
+    border-radius: 50%;
+    padding: 5px;
+    margin-left: 10px;
+}
+.circle {
+    border-radius: 50%;
+    background-color: white;
+    color: #34495e;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+}
+.fish-name {
+    margin-top: 10px;
+}
+
+.fish-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+
+.achievement-rate {
+    position: sticky;
+    bottom: 10px;
+    background-color: #fff;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+.background-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/question_back.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
