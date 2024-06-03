@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { QuizComponent } from './quiz/quiz.component';
-import { FishguideComponent } from './fishguide/fishguide.component';
-import { HowtoplayComponent } from './howtoplay/howtoplay.component';
-import { LoginComponent } from './login/login.component';
-import { LogoutComponent } from './logout/logout.component';
-import { SignupComponent } from './signup/signup.component';
+import { QuizComponent } from './pages/quiz/quiz.component';
+import { FishguideComponent } from './pages/fishguide/fishguide.component';
+import { HowtoplayComponent } from './pages/howtoplay/howtoplay.component';
+import { LoginComponent } from './pages/login/login.component';
+import { LogoutComponent } from './pages/logout/logout.component';
+import { SignupComponent } from './pages/signup/signup.component';
 export const routes: Routes = [
     { path: '',component: HomeComponent,},
     { path: 'quiz', component: QuizComponent},

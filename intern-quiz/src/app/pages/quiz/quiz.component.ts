@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ToolbarComponent } from '../components/toolbar/toolbar.component';
+import { ToolbarComponent } from '../../components/toolbar/toolbar.component';
 
 @Component({
   selector: 'app-quiz',

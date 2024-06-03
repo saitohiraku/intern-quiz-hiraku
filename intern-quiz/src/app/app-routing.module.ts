@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { QuizComponent } from './quiz/quiz.component';
-import { FishguideComponent } from './fishguide/fishguide.component';
-import { HowtoplayComponent } from './howtoplay/howtoplay.component';
+import { QuizComponent } from './pages/quiz/quiz.component';
+import { FishguideComponent } from './pages/fishguide/fishguide.component';
+import { HowtoplayComponent } from './pages/howtoplay/howtoplay.component';
 
 
 const routes: Routes = [

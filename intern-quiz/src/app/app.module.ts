@@ -8,9 +8,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { QuizComponent } from './quiz/quiz.component';
+import { QuizComponent } from './pages/quiz/quiz.component';
 import { HomeComponent } from './pages/home/home.component';
-import { FishguideComponent } from './fishguide/fishguide.component';
+import { FishguideComponent } from './pages/fishguide/fishguide.component';
 import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [

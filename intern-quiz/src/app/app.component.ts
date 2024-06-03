@@ -2,14 +2,14 @@ import { Component, NgModule } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { HomeComponent } from "./pages/home/home.component";
-import { QuizComponent } from './quiz/quiz.component';
-import { FishguideComponent } from './fishguide/fishguide.component';
-import { HowtoplayComponent } from './howtoplay/howtoplay.component';
+import { QuizComponent } from './pages/quiz/quiz.component';
+import { FishguideComponent } from './pages/fishguide/fishguide.component';
+import { HowtoplayComponent } from './pages/howtoplay/howtoplay.component';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
-import { QuizModule } from './quiz/quiz.module';
-import { SignupComponent } from "./signup/signup.component";
-import { LoginComponent } from "./login/login.component";
+import { QuizModule } from './pages/quiz/quiz.module';
+import { SignupComponent } from "./pages/signup/signup.component";
+import { LoginComponent } from "./pages/login/login.component";
 @Component({
     selector: 'app-root',
     template: `
