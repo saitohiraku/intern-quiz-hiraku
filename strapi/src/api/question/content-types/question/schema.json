@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "questions",
+  "info": {
+    "singularName": "question",
+    "pluralName": "questions",
+    "displayName": "Question",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "questionId": {
+      "type": "integer",
+      "required": true,
+      "unique": true
+    },
+    "questionText": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "answers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::answer.answer",
+      "mappedBy": "questionId"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "answers",
+  "info": {
+    "singularName": "answer",
+    "pluralName": "answers",
+    "displayName": "Answer",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "answerId": {
+      "type": "integer",
+      "required": true,
+      "unique": true
+    },
+    "isCorrect": {
+      "type": "boolean",
+      "required": true
+    },
+    "questionId": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::question.question",
+      "inversedBy": "answers"
+    },
+    "fishId": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::fish-guide.fish-guide"
+    }
+  }
+}

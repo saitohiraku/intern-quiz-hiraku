@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "scores",
+  "info": {
+    "singularName": "score",
+    "pluralName": "scores",
+    "displayName": "Score",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "scoreId": {
+      "type": "integer",
+      "required": true,
+      "unique": true
+    },
+    "scoreMin": {
+      "type": "integer",
+      "required": true,
+      "unique": true
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "fish_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::fish-guide.fish-guide"
+    }
+  }
+}
