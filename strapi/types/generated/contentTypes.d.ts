@@ -723,7 +723,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.role'
     >;
-    userId: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -800,14 +799,13 @@ export interface ApiAnswerAnswer extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    answerId: Attribute.Integer & Attribute.Required & Attribute.Unique;
     isCorrect: Attribute.Boolean & Attribute.Required;
-    questionId: Attribute.Relation<
+    question: Attribute.Relation<
       'api::answer.answer',
       'manyToMany',
       'api::question.question'
     >;
-    fishId: Attribute.Relation<
+    fishguide: Attribute.Relation<
       'api::answer.answer',
       'oneToMany',
       'api::fish-guide.fish-guide'
@@ -842,7 +840,6 @@ export interface ApiFishGuideFishGuide extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    fishId: Attribute.Integer & Attribute.Required & Attribute.Unique;
     fishName: Attribute.String & Attribute.Required & Attribute.Unique;
     fishPicture: Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
@@ -880,7 +877,6 @@ export interface ApiQuestionQuestion extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    questionId: Attribute.Integer & Attribute.Required & Attribute.Unique;
     questionText: Attribute.String & Attribute.Required & Attribute.Unique;
     answers: Attribute.Relation<
       'api::question.question',
@@ -917,14 +913,13 @@ export interface ApiScoreScore extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    scoreId: Attribute.Integer & Attribute.Required & Attribute.Unique;
     scoreMin: Attribute.Integer & Attribute.Required & Attribute.Unique;
     user: Attribute.Relation<
       'api::score.score',
       'oneToOne',
       'plugin::users-permissions.user'
     >;
-    fish_id: Attribute.Relation<
+    fishguide: Attribute.Relation<
       'api::score.score',
       'oneToOne',
       'api::fish-guide.fish-guide'
@@ -944,78 +939,6 @@ export interface ApiScoreScore extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
-  };
-}
-
-export interface ApiUserMainUserMain extends Schema.CollectionType {
-  collectionName: 'user_mains';
-  info: {
-    singularName: 'user-main';
-    pluralName: 'user-mains';
-    displayName: 'userMain';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    userId: Attribute.Integer &
-      Attribute.Required &
-      Attribute.Unique &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    userName: Attribute.String &
-      Attribute.Required &
-      Attribute.Unique &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    password: Attribute.Password &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    email: Attribute.Email &
-      Attribute.Required &
-      Attribute.Unique &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::user-main.user-main',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::user-main.user-main',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::user-main.user-main',
-      'oneToMany',
-      'api::user-main.user-main'
-    >;
-    locale: Attribute.String;
   };
 }
 
@@ -1041,7 +964,6 @@ declare module '@strapi/types' {
       'api::fish-guide.fish-guide': ApiFishGuideFishGuide;
       'api::question.question': ApiQuestionQuestion;
       'api::score.score': ApiScoreScore;
-      'api::user-main.user-main': ApiUserMainUserMain;
     }
   }
 }

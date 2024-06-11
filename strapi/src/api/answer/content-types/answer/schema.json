@@ -12,22 +12,17 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "answerId": {
-      "type": "integer",
-      "required": true,
-      "unique": true
-    },
     "isCorrect": {
       "type": "boolean",
       "required": true
     },
-    "questionId": {
+    "question": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::question.question",
       "inversedBy": "answers"
     },
-    "fishId": {
+    "fishguide": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::fish-guide.fish-guide"

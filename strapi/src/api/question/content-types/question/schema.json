@@ -12,11 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "questionId": {
-      "type": "integer",
-      "required": true,
-      "unique": true
-    },
     "questionText": {
       "type": "string",
       "required": true,
@@ -26,7 +21,7 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::answer.answer",
-      "mappedBy": "questionId"
+      "mappedBy": "question"
     }
   }
 }

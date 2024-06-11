@@ -12,11 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "scoreId": {
-      "type": "integer",
-      "required": true,
-      "unique": true
-    },
     "scoreMin": {
       "type": "integer",
       "required": true,
@@ -27,7 +22,7 @@
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
     },
-    "fish_id": {
+    "fishguide": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::fish-guide.fish-guide"

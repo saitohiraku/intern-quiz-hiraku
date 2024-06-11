@@ -12,11 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "fishId": {
-      "type": "integer",
-      "required": true,
-      "unique": true
-    },
     "fishName": {
       "type": "string",
       "required": true,
