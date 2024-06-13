@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fish_guides",
+  "info": {
+    "singularName": "fish-guide",
+    "pluralName": "fish-guides",
+    "displayName": "FishGuide",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fishName": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "fishPicture": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "private": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "questions",
+  "info": {
+    "singularName": "question",
+    "pluralName": "questions",
+    "displayName": "Question",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "questionText": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "answers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::answer.answer",
+      "mappedBy": "question"
+    }
+  }
+}

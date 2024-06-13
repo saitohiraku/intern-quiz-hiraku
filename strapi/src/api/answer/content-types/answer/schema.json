@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "answers",
+  "info": {
+    "singularName": "answer",
+    "pluralName": "answers",
+    "displayName": "Answer",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "isCorrect": {
+      "type": "boolean",
+      "required": true
+    },
+    "question": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::question.question",
+      "inversedBy": "answers"
+    },
+    "fishguide": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::fish-guide.fish-guide"
+    }
+  }
+}
