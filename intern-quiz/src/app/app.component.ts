@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { QuizModule } from './pages/quiz/quiz.module';
 import { SignupComponent } from "./pages/signup/signup.component";
 import { LoginComponent } from "./pages/login/login.component";
+import { HttpClientModule } from '@angular/common/http';
 @Component({
     selector: 'app-root',
     template: `
@@ -31,7 +32,10 @@ import { LoginComponent } from "./pages/login/login.component";
         HowtoplayComponent,
         RouterModule,
         AppRoutingModule,
-        QuizModule, SignupComponent, LoginComponent]
+        QuizModule, 
+        SignupComponent, 
+        LoginComponent,
+        HttpClientModule]
 })
 export class AppComponent {
   title = 'intern-quiz';

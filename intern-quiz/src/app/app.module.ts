@@ -6,12 +6,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { QuizComponent } from './pages/quiz/quiz.component';
-import { HomeComponent } from './pages/home/home.component';
-import { FishguideComponent } from './pages/fishguide/fishguide.component';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
   ],
@@ -23,7 +19,8 @@ import { RouterModule } from '@angular/router';
     MatButtonModule,
     CommonModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
 
   ],
   providers: [],

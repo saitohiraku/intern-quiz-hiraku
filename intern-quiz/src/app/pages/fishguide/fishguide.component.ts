@@ -1,25 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ToolbarComponent } from '../../components/toolbar/toolbar.component';
-
+import { FishGuideService } from '../../service/fish-guide.service';
+import { HttpClientModule } from '@angular/common/http';
 @Component({
   standalone: true,
   imports: [CommonModule,
-            ToolbarComponent
+            ToolbarComponent,
+            HttpClientModule
           ],
   selector: 'app-fishguide',
   templateUrl: './fishguide.component.html',
-  styleUrls: ['./fishguide.component.css']
+  styleUrls: ['./fishguide.component.css'],
+  providers: [FishGuideService]
 })
-export class FishguideComponent {
-  fishList = [
-    { name: 'フサフサヒレナガチョウチンアンコウ', image: '/assets/husahire.jpeg' },
-    { name: '????', image: '/assets/1327-600x600.jpg' },
-    { name: '????', image: '/assets/1327-600x600.jpg' },
+export class FishguideComponent implements OnInit {
+  fishList: any[] = [];
+  fishName: any[] = [];
+  fishPhoto: any[] = [];
 
-  ];
-
-  onScroll() {
+  constructor(private fishguideservice: FishGuideService) { }
+  
+  ngOnInit(): void {
+    this.fishguideservice.getFishes().subscribe(
+      (data: any[]) => { 
+        this.fishList = data; 
+      },
+      (error: any) => {
+        console.error('Error fetching fish data', error);
+      }
+    );
+  }
+  onscroll(){
 
   }
 }
