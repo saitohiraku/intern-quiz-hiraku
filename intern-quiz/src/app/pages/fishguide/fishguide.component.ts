@@ -1,14 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ToolbarComponent } from '../../components/toolbar/toolbar.component';
-import { FishGuideService } from '../../service/fish-guide.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ToolbarComponent } from '../../components/toolbar/toolbar.component';
+import { FishGuideService } from '../../service/fish-guide.service'; 
+import { FishResponse } from '../../models/fish.types'; 
+
 @Component({
   standalone: true,
-  imports: [CommonModule,
-            ToolbarComponent,
-            HttpClientModule
-          ],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    ToolbarComponent
+  ],
   selector: 'app-fishguide',
   templateUrl: './fishguide.component.html',
   styleUrls: ['./fishguide.component.css'],
@@ -16,22 +19,28 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class FishguideComponent implements OnInit {
   fishList: any[] = [];
-  fishName: any[] = [];
-  fishPhoto: any[] = [];
 
-  constructor(private fishguideservice: FishGuideService) { }
-  
+  constructor(private fishService: FishGuideService) { }
+
   ngOnInit(): void {
-    this.fishguideservice.getFishes().subscribe(
-      (data: any[]) => { 
-        this.fishList = data; 
+    this.fishService.getMyScores().subscribe(
+      (response: FishResponse) => {
+        console.log('API Response:', response);
+        const scoreData = response.data;
+        const fishData = scoreData.attributes.fishguide.data;
+        this.fishList = [{
+          name: fishData.attributes.fishName,
+          picture: fishData.attributes.fishPictureUrl,
+          scoreMin: scoreData.attributes.scoreMin
+        }];
       },
       (error: any) => {
         console.error('Error fetching fish data', error);
       }
     );
   }
-  onscroll(){
 
+  onScroll() {
+  
   }
 }

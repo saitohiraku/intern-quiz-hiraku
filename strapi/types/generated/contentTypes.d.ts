@@ -841,12 +841,10 @@ export interface ApiFishGuideFishGuide extends Schema.CollectionType {
   };
   attributes: {
     fishName: Attribute.String & Attribute.Required & Attribute.Unique;
-    fishPicture: Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    > &
+    fishPicture: Attribute.Media<'images'> &
       Attribute.Required &
       Attribute.Private;
+    fishPictureUrl: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -42,11 +42,13 @@
     margin-top: 10px;
 }
 
-.fish-image {
+.fish-picture {
     display: block;
     max-width: 100%;
-    height: auto;
     margin-top: 10px;
+    width: 200px;
+    height: 130px;
+    object-fit: cover;
 }
 
 .achievement-rate {

@@ -1,18 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs';
+import { FishResponse } from '../models/fish.types';  
+
 @Injectable({
   providedIn: 'root'
 })
 export class FishGuideService {
-  private apiUrl = 'http://localhost:1337/api/fish-guides'; 
+  private apiUrl = 'http://localhost:1337/api/scores'; 
+
 
   constructor(private http: HttpClient) { }
 
-  getFishes(): Observable<any[]> {
-    return this.http.get<any>(this.apiUrl).pipe(
-      map(response => response.data) 
-    );
+  getFishes(): Observable<FishResponse> {
+    return this.http.get<FishResponse>(this.apiUrl);
+  }
+  getMyScores():Observable<FishResponse> {
+    const apiUrl = 'http://localhost:1337/api/scores/2?populate=*'; 
+    return this.http.get<FishResponse>(apiUrl);
   }
 }

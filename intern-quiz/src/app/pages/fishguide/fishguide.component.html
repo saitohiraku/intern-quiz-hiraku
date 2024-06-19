@@ -1,24 +1,24 @@
 <app-toolbar></app-toolbar>
-<div class="pokedex-container" (scroll)="onscroll()">
-    <div class="background-container"></div>
-    <div class="pokedex-item" *ngFor="let fish of fishList; let i = index">
-      <div class="divider" *ngIf="i > 0"></div> 
+<div class="pokedex-container" (scroll)="onScroll()">
+<div class="background-container"></div>
+<div class="pokedex-item" *ngFor="let fish of fishList; let i = index">
+<div class="divider" *ngIf="i > 0"></div> 
 
-        <div class="content-wrapper">
-        <div class="best-score-box">
-            ベストスコア
-        </div>
-        <div class="completion-box">
-        <div class="circle">1/8</div>
-        </div>
-        <div class="fish-name">
-        {{ fish.name }}
-        </div>
-        <img [src]="fish.image" alt="{{ fish.name }}" class="fish-image">
-        </div>
+<div class="content-wrapper">
+    <div class="best-score-box">
+    ベストスコア
     </div>
+    <div class="completion-box">
+    <div class="circle">{{fish.scoreMin}}/8</div>
+    </div>
+    <div class="fish-name">
+    {{ fish.name }}
+    </div>
+    <img [src]="fish.picture" alt="{{ fish.name }}" class="fish-picture">
+</div>
+</div>
 
-    <div class="achievement-rate">
-        図鑑達成率 1%
-    </div>
+<div class="achievement-rate">
+図鑑達成率 1%
+</div>
 </div>
