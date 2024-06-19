@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { FishResponse } from '../models/fish.types';  
+import { FishResponse } from '../../models/fish.types';  
 
 @Injectable({
   providedIn: 'root'

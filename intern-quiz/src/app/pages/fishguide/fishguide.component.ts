@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ToolbarComponent } from '../../components/toolbar/toolbar.component';
-import { FishGuideService } from '../../service/fish-guide.service'; 
+import { FishGuideService } from './fish-guide.service'; 
 import { FishResponse } from '../../models/fish.types'; 
 
 @Component({
