@@ -19,17 +19,19 @@
     },
     "fishPicture": {
       "type": "media",
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "private": true,
       "allowedTypes": [
-        "images"
+        "images",
+        "files",
+        "videos",
+        "audios"
       ]
     },
     "fishPictureUrl": {
       "type": "string",
-      "required": true,
-      "unique": false
+      "required": true
     }
   }
 }
