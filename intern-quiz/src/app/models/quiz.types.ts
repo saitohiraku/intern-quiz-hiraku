@@ -6,5 +6,7 @@ data: {
 }
 
 export interface QuizData {
-question: string;
+    question: string;
+    correctAnswer: string; 
 }
+
