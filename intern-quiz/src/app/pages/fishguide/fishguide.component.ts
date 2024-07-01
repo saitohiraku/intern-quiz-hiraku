@@ -26,19 +26,22 @@ export class FishguideComponent implements OnInit {
     this.fishService.getMyScores().subscribe(
       (response: FishResponse) => {
         console.log('API Response:', response);
-        const scoreData = response.data;
-        const fishData = scoreData.attributes.fishguide.data;
-        this.fishList = [{
-          name: fishData.attributes.fishName,
-          picture: fishData.attributes.fishPictureUrl,
-          scoreMin: scoreData.attributes.scoreMin
-        }];
+        const scoreDataList = response.data; 
+        this.fishList = [];
+        scoreDataList.forEach((scoreData: { attributes: { fishguide: { data: any; }; scoreMin: any; }; }) => {
+          const fishData = scoreData.attributes.fishguide?.data;
+          if (fishData) {
+            this.fishList.push({
+              name: fishData.attributes.fishName,
+              picture: fishData.attributes.fishPictureUrl,
+              scoreMin: scoreData.attributes.scoreMin
+            });
+          } 
+        });
       },
-      (error: any) => {
-        console.error('Error fetching fish data', error);
-      }
     );
   }
+  
 
   onScroll() {
   

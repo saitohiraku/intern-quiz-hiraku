@@ -16,7 +16,7 @@ export class FishGuideService {
     return this.http.get<FishResponse>(this.apiUrl);
   }
   getMyScores():Observable<FishResponse> {
-    const apiUrl = 'http://localhost:1337/api/scores/2?populate=*'; 
+    const apiUrl = 'http://localhost:1337/api/scores/?populate=*&filters[user][username][$eq]=saito%20test'; 
     return this.http.get<FishResponse>(apiUrl);
   }
 }
