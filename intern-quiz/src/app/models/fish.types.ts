@@ -40,6 +40,7 @@ fishguide: {
 }
 
 export interface ScoreData {
+forEach(arg0: (scoreData: { attributes: { fishguide: { data: any; }; scoreMin: any; }; }) => void): unknown;
 id: number;
 attributes: ScoreAttributes;
 }
