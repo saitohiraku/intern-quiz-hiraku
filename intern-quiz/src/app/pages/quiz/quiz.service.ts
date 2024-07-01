@@ -13,12 +13,12 @@ export class QuizService {
     return this.http.get<any>(this.apiUrl);
   }
   getAnswerData(): Observable<QuizResponse> {
-    const apiUpl = 'http://localhost:1337/api/fish-guides';
-    return this.http.get<any>(apiUpl);
+    const apiUrl = 'http://localhost:1337/api/fish-guides';
+    return this.http.get<any>(apiUrl);
   }
   checkCorrect(): Observable<QuizResponse> {
-    const apiUpl = 'http://localhost:1337/api/answers?populate=fishguide,question';
-    return this.http.get<any>(apiUpl);
+    const apiUrl = 'http://localhost:1337/api/answers?populate=fishguide,question';
+    return this.http.get<any>(apiUrl);
   }
 }
 
