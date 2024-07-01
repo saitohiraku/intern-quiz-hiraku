@@ -4,11 +4,14 @@ import { QuizService } from './quiz.service';
 import { QuizResponse, QuizData } from '../../models/quiz.types'; 
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-quiz',
   standalone: true,
-  imports: [CommonModule, ToolbarComponent],
+  imports: [CommonModule, 
+            ToolbarComponent,
+            HttpClientModule],
   templateUrl: './quiz.component.html',
   styleUrls: ['./quiz.component.css'],
   providers: [QuizService]
@@ -27,12 +30,12 @@ export class QuizComponent implements OnInit {
   }
 
   getRandomFish(): void {
-    this.http.get('http://localhost:1337/api/fish-guides').subscribe(
+    this.quizService.getAnswerData().subscribe(
       (response: any) => {
         const fishList = response.data;
         const randomFish = fishList[Math.floor(Math.random() * fishList.length)].attributes;
         this.selectedFish = randomFish;
-        console.log('Selected Fish Name:', randomFish.fishName); 
+        console.log('クイズの答え', randomFish.fishName); 
         this.loadQuestions();
       }
     );
@@ -58,11 +61,11 @@ export class QuizComponent implements OnInit {
 
   onSelectQuestion(question: QuizData): void {
     this.selectedQuestion = question;
-    this.checkanswer(question);
+    this.checkAnswer(question);
   }
 
-  checkanswer(question: QuizData): void {
-    this.http.get('http://localhost:1337/api/answers?populate=fishguide,question').subscribe(
+  checkAnswer(question: QuizData): void {
+    this.quizService.checkCorrect().subscribe(
       (response: any) => {
         const answers = response.data;
         const matchAnswer = answers.find((answer: any) => 

@@ -8,10 +8,17 @@ import { QuizResponse } from '../../models/quiz.types';
 })
 export class QuizService {
   private apiUrl = 'http://localhost:1337/api/questions'; 
-
   constructor(private http: HttpClient) { }
-
   getQuizData(): Observable<QuizResponse> {
     return this.http.get<any>(this.apiUrl);
   }
+  getAnswerData(): Observable<QuizResponse> {
+    const apiUpl = 'http://localhost:1337/api/fish-guides';
+    return this.http.get<any>(apiUpl);
+  }
+  checkCorrect(): Observable<QuizResponse> {
+    const apiUpl = 'http://localhost:1337/api/answers?populate=fishguide,question';
+    return this.http.get<any>(apiUpl);
+  }
 }
+
