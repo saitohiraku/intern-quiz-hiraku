@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToolbarComponent } from '../../components/toolbar/toolbar.component';
 import { QuizService } from './quiz.service';
-import { QuizResponse, QuizData } from '../../models/quiz.types'; 
+import { QuizResponse, Quiz } from '../../models/quiz.types'; 
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
@@ -17,11 +17,14 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [QuizService]
 })
 export class QuizComponent implements OnInit {
-  quizList: QuizData[] = []; 
-  displayQuestions: QuizData[] = []; 
-  selectedQuestion: QuizData | null = null;
+  quizList: Quiz[] = []; 
+  displayQuestions: Quiz[] = []; 
+  selectedQuestion: Quiz | null = null;
   resultImage: string = '/assets/kozakana_ao.png';
   selectedFish: any = null;
+  questionCount: number = 0; 
+  maxQuestions: number = 8;
+  finishImage: string = '';
 
   constructor(private quizService: QuizService, private http: HttpClient) { }
 
@@ -30,7 +33,7 @@ export class QuizComponent implements OnInit {
   }
 
   getRandomFish(): void {
-    this.quizService.getAnswerData().subscribe(
+    this.quizService.getAnswer().subscribe(
       (response: any) => {
         const fishList = response.data;
         const randomFish = fishList[Math.floor(Math.random() * fishList.length)].attributes;
@@ -42,7 +45,7 @@ export class QuizComponent implements OnInit {
   }
 
   loadQuestions(): void {
-    this.quizService.getQuizData().subscribe(
+    this.quizService.getQuiz().subscribe(
       (response: any) => {
         const questionData = response.data;
         this.quizList = questionData.map((item: any) => ({
@@ -54,17 +57,27 @@ export class QuizComponent implements OnInit {
     );
   }
 
-  getRandomQuestions(count: number): QuizData[] { 
+  getRandomQuestions(count: number): Quiz[] { 
     const shuffleArray = this.quizList.sort(() => Math.random() - 0.5);
     return shuffleArray.slice(0, count);
   }
 
-  onSelectQuestion(question: QuizData): void {
+  onSelectQuestion(question: Quiz): void {
     this.selectedQuestion = question;
     this.checkAnswer(question);
+    this.questionCount++;
+      if (this.questionCount < this.maxQuestions) {
+        this.shuffleQuestions();
+      }else{
+        this.resultImage = '/assets/kozakana_ao_finish.png';
+      }
   }
 
-  checkAnswer(question: QuizData): void {
+  checkAnswer(question: Quiz): void {
+    
+    if (this.questionCount >= this.maxQuestions) {
+      return;
+    }
     this.quizService.checkCorrect().subscribe(
       (response: any) => {
         const answers = response.data;
@@ -81,5 +94,8 @@ export class QuizComponent implements OnInit {
         console.log(matchAnswer); 
       }
     );
+  }
+  shuffleQuestions(): void {
+    this.displayQuestions = this.getRandomQuestions(4);
   }
 }
