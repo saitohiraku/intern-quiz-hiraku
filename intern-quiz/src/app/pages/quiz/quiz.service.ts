@@ -9,10 +9,10 @@ import { QuizResponse } from '../../models/quiz.types';
 export class QuizService {
   private apiUrl = 'http://localhost:1337/api/questions'; 
   constructor(private http: HttpClient) { }
-  getQuizData(): Observable<QuizResponse> {
+  getQuiz(): Observable<QuizResponse> {
     return this.http.get<any>(this.apiUrl);
   }
-  getAnswerData(): Observable<QuizResponse> {
+  getAnswer(): Observable<QuizResponse> {
     const apiUrl = 'http://localhost:1337/api/fish-guides';
     return this.http.get<any>(apiUrl);
   }
