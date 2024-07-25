@@ -4,7 +4,7 @@ import { LoginComponent } from '../login/login.component';
 @Component({
   selector: 'app-logout',
   standalone: true,
-  imports: [],
+  imports: [LoginComponent],
   templateUrl: './logout.component.html',
   styleUrl: './logout.component.css'
 })
@@ -12,8 +12,8 @@ import { LoginComponent } from '../login/login.component';
 
 export class LogoutComponent {
   constructor(private router: Router) { }
-  goTosetting() {
-    this.router.navigate(['setting']);
+  goToSetting() {
+    this.router.navigate(['login']);
   }
 
 }

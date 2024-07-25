@@ -1,22 +1,21 @@
 <div class="signup-container">
     <div class="background-container"></div>
     <h2>ログイン</h2>
-    <form>
+        <form [formGroup]="loginForm" >
         <div class="form-group">
-        <label for="name">名前</label>
-        <input type="text" id="name" name="name" placeholder="名前を入力">
+            <label for="name">名前</label>
+            <input type="text" id="name" formControlName="name" placeholder="名前を入力">
         </div>
         <div class="form-group">
-        <label for="email">メールアドレス</label>
-        <input type="email" id="email" name="email" placeholder="メールアドレスを入力">
+            <label for="email">メールアドレス</label>
+            <input type="email" id="email" formControlName="email" placeholder="メールアドレスを入力">
         </div>
         <div class="form-group">
-        <label for="password">パスワード</label>
-        <input type="password" id="password" name="password" placeholder="パスワードを入力">
+            <label for="password">パスワード</label>
+            <input type="password" id="password" formControlName="password" placeholder="パスワードを入力">
         </div>
         <div class="button-container">
-        <button mat-flat-button (click)="goToHome()">ログイン</button>
+            <button type="button"(click)="onSubmit()">ログイン</button>
         </div>
     </form>
 </div>
-

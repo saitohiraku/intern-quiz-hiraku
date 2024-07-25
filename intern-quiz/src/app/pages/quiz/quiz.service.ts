@@ -20,5 +20,9 @@ export class QuizService {
     const apiUrl = 'http://localhost:1337/api/answers?populate=fishguide,question';
     return this.http.get<any>(apiUrl);
   }
+  getMyScores():Observable<QuizResponse> {
+    const apiUrl = 'http://localhost:1337/api/scores/?populate=*&filters[user][username][$eq]=saito%20test'; 
+    return this.http.get<QuizResponse>(apiUrl);
+  }
 }
 
