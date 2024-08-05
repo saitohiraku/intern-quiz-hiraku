@@ -5,13 +5,16 @@ import { QuizResponse, Quiz } from '../../models/quiz.types';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-quiz',
   standalone: true,
   imports: [CommonModule, 
             ToolbarComponent,
-            HttpClientModule],
+            HttpClientModule,
+            FormsModule],
   templateUrl: './quiz.component.html',
   styleUrls: ['./quiz.component.css'],
   providers: [QuizService]
@@ -24,9 +27,9 @@ export class QuizComponent implements OnInit {
   selectedFish: any = null;
   questionCount: number = 0; 
   maxQuestions: number = 8;
-  finishImage: string = '';
+  userAnswer: string = '';
 
-  constructor(private quizService: QuizService, private http: HttpClient) { }
+  constructor(private quizService: QuizService, private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
     this.getRandomFish();
@@ -66,15 +69,14 @@ export class QuizComponent implements OnInit {
     this.selectedQuestion = question;
     this.checkAnswer(question);
     this.questionCount++;
-      if (this.questionCount < this.maxQuestions) {
-        this.shuffleQuestions();
-      }else{
-        this.resultImage = '/assets/kozakana_ao_finish.png';
-      }
+    if (this.questionCount < this.maxQuestions) {
+      this.shuffleQuestions();
+    } else {
+      this.resultImage = '/assets/kozakana_ao_finish.png';
+    }
   }
 
   checkAnswer(question: Quiz): void {
-    
     if (this.questionCount >= this.maxQuestions) {
       return;
     }
@@ -95,7 +97,20 @@ export class QuizComponent implements OnInit {
       }
     );
   }
+
   shuffleQuestions(): void {
     this.displayQuestions = this.getRandomQuestions(4);
+  }
+
+  UserAnswer(): void {
+    if (this.userAnswer === this.selectedFish.fishName) {
+      this.resultImage = '/assets/kozakana_ao_correct.png';
+    } else {
+      this.resultImage = '/assets/kozakana_ao_incorrect.png';
+      console.log(this.userAnswer);
+    }
+      setTimeout(() => {
+      this.router.navigate(['/result']);
+    }, 3000);
   }
 }

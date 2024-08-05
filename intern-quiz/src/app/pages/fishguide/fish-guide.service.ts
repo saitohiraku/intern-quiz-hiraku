@@ -16,7 +16,14 @@ export class FishGuideService {
     return this.http.get<FishResponse>(this.apiUrl);
   }
   getMyScores():Observable<FishResponse> {
-    const apiUrl = 'http://localhost:1337/api/scores/?populate=*&filters[user][username][$eq]=saito%20test'; 
-    return this.http.get<FishResponse>(apiUrl);
+    const apiUrl = `http://localhost:1337/api/scores/?populate=*&filters[user][id][$eq]=${sessionStorage.getItem('user')}`; 
+    return this.http.get<FishResponse>(apiUrl,{
+      headers:{
+        Authorization: `Bearer ${sessionStorage.getItem('token')}`
+      }
+    });
   }
 }
+// headers: {
+//   Authorization: `Bearer ${this.token}`,
+// },
