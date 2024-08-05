@@ -6,6 +6,7 @@ import { HowtoplayComponent } from './pages/howtoplay/howtoplay.component';
 import { LoginComponent } from './pages/login/login.component';
 import { LogoutComponent } from './pages/logout/logout.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { StartComponent } from './pages/start/start.component';
 export const routes: Routes = [
     { path: '',component: HomeComponent,},
     { path: 'quiz', component: QuizComponent},
@@ -13,5 +14,6 @@ export const routes: Routes = [
     { path: 'howtoplay',component: HowtoplayComponent},
     { path: 'logout',component: LogoutComponent},
     { path: 'setting',component: LoginComponent},
-    { path: 'signup',component: SignupComponent}
+    { path: 'signup',component: SignupComponent},
+    { path: 'start',component: StartComponent}
 ];

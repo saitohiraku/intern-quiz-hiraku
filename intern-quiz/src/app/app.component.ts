@@ -11,6 +11,7 @@ import { QuizModule } from './pages/quiz/quiz.module';
 import { SignupComponent } from "./pages/signup/signup.component";
 import { LoginComponent } from "./pages/login/login.component";
 import { HttpClientModule } from '@angular/common/http';
+import { StartComponent } from './pages/start/start.component';
 @Component({
     selector: 'app-root',
     template: `
@@ -24,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [RouterOutlet,
+    imports: [
+        RouterOutlet,
         ToolbarComponent,
         HomeComponent,
         QuizComponent,
@@ -35,7 +37,9 @@ import { HttpClientModule } from '@angular/common/http';
         QuizModule, 
         SignupComponent, 
         LoginComponent,
-        HttpClientModule]
+        HttpClientModule,
+        StartComponent
+      ]
 })
 export class AppComponent {
   title = 'intern-quiz';
