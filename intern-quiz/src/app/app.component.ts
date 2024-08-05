@@ -9,9 +9,11 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { QuizModule } from './pages/quiz/quiz.module';
 import { SignupComponent } from "./pages/signup/signup.component";
-import { LoginComponent } from "./pages/login/login.component";
 import { HttpClientModule } from '@angular/common/http';
 import { StartComponent } from './pages/start/start.component';
+import { ResultComponent } from './pages/result/result.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './pages/login/login.component';
 @Component({
     selector: 'app-root',
     template: `
@@ -38,8 +40,10 @@ import { StartComponent } from './pages/start/start.component';
         SignupComponent, 
         LoginComponent,
         HttpClientModule,
-        StartComponent
-      ]
+        StartComponent,
+        ResultComponent,
+        ReactiveFormsModule
+      ],
 })
 export class AppComponent {
   title = 'intern-quiz';

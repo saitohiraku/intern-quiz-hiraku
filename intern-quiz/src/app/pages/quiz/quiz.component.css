@@ -14,6 +14,7 @@
     background-size: cover;
     background-position: center;
     z-index: -1;
+    background-repeat: repeat;
 }
 
 .top-screen {
@@ -92,12 +93,24 @@
 .input-container {
     width: 100%;
     margin-top: 20px;
+    
 }
 
 .input-container input {
-    width: 100%;
+    width: 80%;
     padding: 10px;
     border: 2px solid #03034f;
     border-radius: 10px;
     box-sizing: border-box;
+    bottom:2px;
+}
+.push-button{
+    width:auto;
+    right: 13px;
+    position: absolute;
+    bottom:2px;
+    border: 2px solid #03034f;
+    border-radius: 10px;
+    box-sizing: border-box;
+    
 }
