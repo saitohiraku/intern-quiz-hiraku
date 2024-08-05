@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { QuizModule } from './pages/quiz/quiz.module';
 import { SignupComponent } from "./pages/signup/signup.component";
 import { HttpClientModule } from '@angular/common/http';
+import { StartComponent } from './pages/start/start.component';
 import { ResultComponent } from './pages/result/result.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
@@ -26,7 +27,8 @@ import { LoginComponent } from './pages/login/login.component';
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [RouterOutlet,
+    imports: [
+        RouterOutlet,
         ToolbarComponent,
         HomeComponent,
         QuizComponent,
@@ -36,11 +38,12 @@ import { LoginComponent } from './pages/login/login.component';
         AppRoutingModule,
         QuizModule, 
         SignupComponent, 
+        LoginComponent,
         HttpClientModule,
+        StartComponent,
         ResultComponent,
-        ReactiveFormsModule,
-        LoginComponent
-        ]
+        ReactiveFormsModule
+      ],
 })
 export class AppComponent {
   title = 'intern-quiz';
