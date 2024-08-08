@@ -105,12 +105,16 @@ export class QuizComponent implements OnInit {
   UserAnswer(): void {
     if (this.userAnswer === this.selectedFish.fishName) {
       this.resultImage = '/assets/kozakana_ao_correct.png';
+      setTimeout(() => {
+        this.router.navigate(['/result']);
+      }, 3000);
     } else {
       this.resultImage = '/assets/kozakana_ao_incorrect.png';
       console.log(this.userAnswer);
-    }
       setTimeout(() => {
-      this.router.navigate(['/result']);
-    }, 3000);
+        this.router.navigate(['/result']);
+      }, 3000);
+    }
+      
   }
 }
