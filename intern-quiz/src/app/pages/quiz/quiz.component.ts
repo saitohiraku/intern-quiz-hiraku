@@ -112,7 +112,7 @@ export class QuizComponent implements OnInit {
       this.resultImage = '/assets/kozakana_ao_incorrect.png';
       console.log(this.userAnswer);
       setTimeout(() => {
-        this.router.navigate(['/result']);
+        this.router.navigate(['/incorrect']);
       }, 3000);
     }
       

@@ -1,0 +1,31 @@
+.background-container{
+    background: rgb(59, 59, 112);
+}
+.result-screen{
+    margin-top: 20px;
+    text-align: center;
+    color: white;
+    border-radius: 10px; 
+    padding: 10px; 
+}
+.button-container {
+    display: flex;
+    justify-content: center; 
+    gap: 15px; 
+    margin-top: 20px; 
+}
+
+.button-container button {
+    background-color: #1a237e;
+    color: white;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.button-container button:hover {
+    background-color: #0d1b56;
+}
