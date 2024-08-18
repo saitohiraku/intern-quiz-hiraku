@@ -90,7 +90,7 @@ export class QuizComponent implements OnInit {
         if (matchAnswer && matchAnswer.attributes.isCorrect) {
           this.resultImage = '/assets/kozakana_ao_correct_question.png';
         } else {
-          this.resultImage = '/assets/kozakana_ao_incorrect.png';
+          this.resultImage = '/assets/kozakana_ao_incorrect_question.png';
         }
         console.log(question.question); 
         console.log(matchAnswer); 
