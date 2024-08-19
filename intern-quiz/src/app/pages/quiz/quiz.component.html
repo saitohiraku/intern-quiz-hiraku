@@ -10,13 +10,14 @@
     <div class="separator"></div>
     <div class="bottom-screen">
         <div *ngFor="let question of displayQuestions" class="question-container">
-            <button mat-button (click)="onSelectQuestion(question)">{{ question.question }}</button>
-        </div>
-        <div class="input-container">
-            <input type="text" [(ngModel)]="userAnswer" placeholder="答えを入力">
-        <div class="push-button">
-            <button mat-button (click)="UserAnswer()">答えを確認</button>
-        </div>
+            <div (click)="onSelectQuestion(question)">{{ question.question }}</div>
         </div>
     </div>
+    <div class="input-container">
+            <input type="text" [(ngModel)]="userAnswer" placeholder="答えを入力">
+        <div class="push-button">
+            <button (click)="UserAnswer()">答えを確認</button>
+        </div>
+    </div>
+    
 </div>
