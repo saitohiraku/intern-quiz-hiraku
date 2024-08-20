@@ -14,6 +14,7 @@ import { StartComponent } from './pages/start/start.component';
 import { ResultComponent } from './pages/result/result.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
+import { IncorrectComponent } from './pages/incorrect/incorrect.component';
 @Component({
     selector: 'app-root',
     template: `
@@ -42,7 +43,8 @@ import { LoginComponent } from './pages/login/login.component';
         HttpClientModule,
         StartComponent,
         ResultComponent,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        IncorrectComponent
       ],
 })
 export class AppComponent {

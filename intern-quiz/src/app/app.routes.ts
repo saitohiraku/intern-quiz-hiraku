@@ -8,6 +8,8 @@ import { LogoutComponent } from './pages/logout/logout.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { StartComponent } from './pages/start/start.component';
 import { ResultComponent } from './pages/result/result.component';
+import { IncorrectComponent } from './pages/incorrect/incorrect.component';
+
 export const routes: Routes = [
     { path: '',component: StartComponent,},
     { path: 'quiz', component: QuizComponent},
@@ -18,5 +20,6 @@ export const routes: Routes = [
     { path: 'setting',component: LoginComponent},
     { path: 'signup',component: SignupComponent},
     { path: 'home',component: HomeComponent},
-    { path: 'result', component: ResultComponent }
+    { path: 'result', component: ResultComponent },
+    { path: 'incorrect', component: IncorrectComponent}
 ];
