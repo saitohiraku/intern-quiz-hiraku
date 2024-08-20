@@ -40,6 +40,6 @@ export class ResultComponent {
   }
 
   goToHome(): void {
-    this.router.navigate(['']);
+    this.router.navigate(['/home']);
   }
 }

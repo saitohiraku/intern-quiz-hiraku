@@ -17,6 +17,6 @@ export class ToolbarComponent {
   constructor(private router: Router) { }
 
   goToHome() {
-    this.router.navigate(['']);
+    this.router.navigate(['/home']);
 }
 }
