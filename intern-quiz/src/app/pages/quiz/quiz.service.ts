@@ -7,6 +7,7 @@ import { QuizResponse } from '../../models/quiz.types';
   providedIn: 'root'
 })
 export class QuizService {
+  private apiUrl = 'http://localhost:1337/api/scores';
   constructor(private http: HttpClient) { }
   getQuiz(): Observable<QuizResponse> {
     const apiUrl = 'http://localhost:1337/api/questions'; 
@@ -40,5 +41,18 @@ export class QuizService {
       }
     });
   }
+  quiz( scoreMin: number, user:string, fishguide: string): Observable<any> {
+    const payload = {
+      data: {
+          scoreMin,
+          user,
+          fishguide
+      }
+  };
+    return this.http.post<any>(this.apiUrl, payload,{
+      headers:{
+        Authorization: `Bearer ${sessionStorage.getItem('token')}`
+      }
+    });
+  }
 }
-

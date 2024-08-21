@@ -19,5 +19,5 @@ export class SignupService {
       role: '1' 
     };
     return this.http.post<any>(this.apiUrl,user);
-}
+  }
 }

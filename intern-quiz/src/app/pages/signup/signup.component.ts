@@ -10,6 +10,7 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'
 })
+
 export class SignupComponent {
   username: string = '';
   email: string = '';
