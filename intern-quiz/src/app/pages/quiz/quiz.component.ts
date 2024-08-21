@@ -132,14 +132,7 @@ export class QuizComponent implements OnInit {
         console.log('フォームの内容:', this.quizForm.value);
         if (this.quizForm.valid) {
             const { scoreMin, user, fishguide } = this.quizForm.value;
-            const payload = {
-              data:{
-                  scoreMin,
-                  user,
-                  fishguide
-              }
-          };
-            this.quizService.quiz(scoreMin, user, fishguide).subscribe(
+            this.quizService.setScore(scoreMin, user, fishguide).subscribe(
                 (response: any) => {
                     console.log('スコア登録成功', response);
                 },
