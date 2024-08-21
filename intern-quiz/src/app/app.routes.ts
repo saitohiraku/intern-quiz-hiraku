@@ -11,7 +11,7 @@ import { ResultComponent } from './pages/result/result.component';
 import { IncorrectComponent } from './pages/incorrect/incorrect.component';
 
 export const routes: Routes = [
-    { path: '',component: HomeComponent,},
+    { path: '',component: StartComponent,},
     { path: 'quiz', component: QuizComponent},
     { path: 'fishguide',component: FishguideComponent},
     { path: 'howtoplay',component: HowtoplayComponent},
@@ -19,7 +19,7 @@ export const routes: Routes = [
     { path: 'login',component: LoginComponent},
     { path: 'setting',component: LoginComponent},
     { path: 'signup',component: SignupComponent},
-    { path: 'start',component: StartComponent},
+    { path: 'home',component: HomeComponent},
     { path: 'result', component: ResultComponent },
     { path: 'incorrect', component: IncorrectComponent}
 ];

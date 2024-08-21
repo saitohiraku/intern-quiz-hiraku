@@ -13,7 +13,7 @@ import { LoginComponent } from '../login/login.component';
 export class LogoutComponent {
   constructor(private router: Router) { }
   goToSetting() {
-    this.router.navigate(['login']);
+    this.router.navigate(['']);
   }
 
 }

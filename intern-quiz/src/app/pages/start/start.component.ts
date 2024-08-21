@@ -14,9 +14,9 @@ export class StartComponent {
   constructor(private router: Router) { }
 
 goToLogin() {
-  this.router.navigateByUrl("setting");
+  this.router.navigateByUrl('login');
 }
 goToSignup() {
-  this.router.navigateByUrl("signup");
+  this.router.navigateByUrl('signup');
 }
 }

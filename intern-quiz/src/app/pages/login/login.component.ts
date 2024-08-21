@@ -41,7 +41,7 @@ export class LoginComponent {
           sessionStorage.setItem('user', user);
           console.log(sessionStorage.getItem('token'));
           console.log(sessionStorage.getItem('user'));
-          this.router.navigate(['/']);
+          this.router.navigate(['/home']);
           console.log('成功');
         },
         (error) => {
