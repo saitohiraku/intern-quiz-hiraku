@@ -41,16 +41,18 @@ export class QuizService {
       }
     });
   }
-  setScore(scoreMin: number, user: string, fishguide: string):Observable<QuizResponse> {
+  setScore(scoreMin: number, user: string, fishguideId: number):Observable<QuizResponse> {
     const apiUrl = 'http://localhost:1337/api/scores';
     const data = {
-      data: {
-        score: scoreMin,
-        user: user,
-        fishguide: fishguide
-      }
+        data: {
+            scoreMin: scoreMin,   
+            user: user,        
+            fishguide: {       
+                id: fishguideId 
+            }
+        }
     };
-    return this.http.post<QuizResponse>(apiUrl,{
+    return this.http.post<QuizResponse>(apiUrl,data,{
       headers:{
         Authorization: `Bearer ${sessionStorage.getItem('token')}`
       }

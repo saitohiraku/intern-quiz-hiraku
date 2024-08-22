@@ -60,7 +60,10 @@ export class QuizComponent implements OnInit {
       (response: any) => {
         const fishList = response.data;
         const randomFish = fishList[Math.floor(Math.random() * fishList.length)].attributes;
-        this.selectedFish = randomFish;
+        this.selectedFish = {
+          ...randomFish,
+          id: fishList[Math.floor(Math.random() * fishList.length)].id // IDを取得してセット
+      };
         console.log('クイズの答え', randomFish.fishName); 
         this.loadQuestions();
       }
@@ -125,7 +128,7 @@ export class QuizComponent implements OnInit {
     if (this.userAnswer === this.selectedFish.fishName) {
         this.resultImage = '/assets/kozakana_ao_correct.png';
         this.quizForm.patchValue({
-            fishguide: this.selectedFish.fishName,
+            fishguide: this.selectedFish.id,
             scoreMin: this.questionCount,
             user: sessionStorage.getItem('user')
         });
