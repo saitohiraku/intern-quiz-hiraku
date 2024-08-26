@@ -7,6 +7,7 @@ import { QuizResponse } from '../../models/quiz.types';
   providedIn: 'root'
 })
 export class QuizService {
+  
   constructor(private http: HttpClient) { }
   getQuiz(): Observable<QuizResponse> {
     const apiUrl = 'http://localhost:1337/api/questions'; 
@@ -40,5 +41,21 @@ export class QuizService {
       }
     });
   }
+  setScore(scoreMin: number, user: string, fishguideId: number):Observable<QuizResponse> {
+    const apiUrl = 'http://localhost:1337/api/scores';
+    const data = {
+        data: {
+            scoreMin: scoreMin,   
+            user: user,        
+            fishguide: {       
+                id: fishguideId 
+            }
+        }
+    };
+    return this.http.post<QuizResponse>(apiUrl,data,{
+      headers:{
+        Authorization: `Bearer ${sessionStorage.getItem('token')}`
+      }
+    });
+  }
 }
-
