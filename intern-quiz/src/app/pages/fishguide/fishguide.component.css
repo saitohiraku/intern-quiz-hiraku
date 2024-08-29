@@ -1,9 +1,8 @@
 
 
-.pokedex-container {
-    max-height: 80vh;
-    overflow-y: auto;
-}
+/* .pokedex-container {
+    overflow-y:auto; 
+} */
 .pokedex-item {
     padding: 20px;
 }
@@ -52,10 +51,11 @@
 }
 
 .achievement-rate {
-    position: sticky;
-    bottom: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 1px;
     background-color: #fff;
-    padding: 10px;
+    padding: 4px;
     border-top: 1px solid #ccc;
 }
 .background-container {
