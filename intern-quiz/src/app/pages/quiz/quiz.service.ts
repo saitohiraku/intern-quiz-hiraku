@@ -58,4 +58,13 @@ export class QuizService {
       }
     });
   }
+//   deleteScore(scoreId: number): Observable<void> {
+//     const apiUrl = `http://localhost:1337/api/scores/${scoreId}`;
+//     return this.http.delete<void>(apiUrl, {
+//       headers: {
+//         Authorization: `Bearer ${sessionStorage.getItem('token')}`
+//       }
+//     });
+//   }
+// }
 }

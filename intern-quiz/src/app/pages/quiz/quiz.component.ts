@@ -26,13 +26,13 @@ export class QuizComponent implements OnInit {
   resultImage: string = '/assets/kozakana_ao.png';
   selectedFish: any = null;
   questionCount: number = 0; 
-  maxQuestions: number = 8;
+  maxQuestions: number = 9;
   userAnswer: string = '';
   username: string = '';
   email: string = '';
   password: string ='';
   quizForm: FormGroup;
-  scoreMin: number =0;
+  scoreMin: number =1;
   user: string ='';
   fishguide: string = '';
   constructor(
@@ -59,10 +59,21 @@ export class QuizComponent implements OnInit {
     this.quizService.getAnswer().subscribe(
       (response: any) => {
         const fishList = response.data;
-        const randomFish = fishList[Math.floor(Math.random() * fishList.length)].attributes;
+        if (!Array.isArray(fishList) || fishList.length === 0) {
+          console.error('からです', fishList);
+          return;
+      }
+        const randomFishIndex = Math.floor(Math.random() * fishList.length);
+        const selectedFishItem  = fishList[randomFishIndex];
+        console.log('Selected Fish Item:', selectedFishItem);
+        if (!selectedFishItem || !selectedFishItem.attributes) {
+          console.error('ランダムな魚が未定義', selectedFishItem);
+          return;
+        }
+        const randomFish = selectedFishItem.attributes;
         this.selectedFish = {
           ...randomFish,
-          id: fishList[Math.floor(Math.random() * fishList.length)].id // IDを取得してセット
+          id: selectedFishItem.id
       };
         console.log('クイズの答え', randomFish.fishName); 
         this.loadQuestions();
@@ -129,7 +140,7 @@ export class QuizComponent implements OnInit {
         this.resultImage = '/assets/kozakana_ao_correct.png';
         this.quizForm.patchValue({
             fishguide: this.selectedFish.id,
-            scoreMin: this.questionCount,
+            scoreMin: this.scoreMin,
             user: sessionStorage.getItem('user')
         });
         console.log('フォームの内容:', this.quizForm.value);

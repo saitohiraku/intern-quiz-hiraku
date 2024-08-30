@@ -914,7 +914,7 @@ export interface ApiScoreScore extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    scoreMin: Attribute.Integer & Attribute.Required & Attribute.Unique;
+    scoreMin: Attribute.Integer & Attribute.Required;
     user: Attribute.Relation<
       'api::score.score',
       'oneToOne',

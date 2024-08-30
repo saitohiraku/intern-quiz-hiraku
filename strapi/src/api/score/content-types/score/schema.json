@@ -15,7 +15,7 @@
     "scoreMin": {
       "type": "integer",
       "required": true,
-      "unique": true
+      "unique": false
     },
     "user": {
       "type": "relation",
