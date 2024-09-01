@@ -73,7 +73,8 @@ export class QuizComponent implements OnInit {
         const randomFish = selectedFishItem.attributes;
         this.selectedFish = {
           ...randomFish,
-          id: selectedFishItem.id
+          id: selectedFishItem.id,
+          image: selectedFishItem.fishPictureUrl
       };
         console.log('クイズの答え', randomFish.fishName); 
         this.loadQuestions();
@@ -137,7 +138,7 @@ export class QuizComponent implements OnInit {
   }
   UserAnswer(): void {
     if (this.userAnswer === this.selectedFish.fishName) {
-        this.resultImage = '/assets/kozakana_ao_correct.png';
+        this.resultImage = this.selectedFish.fishPictureUrl;
         this.quizForm.patchValue({
             fishguide: this.selectedFish.id,
             scoreMin: this.scoreMin,
